@@ -11,10 +11,8 @@ overpasses.
 
 Built around the August 2026 steppe fires in Karaganda region, Kazakhstan.
 
-**[▶ Live demo map](https://USERNAME.github.io/steppe-fire-era5/)** — synthetic
+**[▶ Live demo map](https://aigulbekbayeva.github.io/steppe-fire-era5/)** — synthetic
 data, no API key needed.
-
-*Русская версия: [README.ru.md](README.ru.md)*
 
 ---
 
@@ -207,33 +205,11 @@ quality work needs a transport model such as HYSPLIT.
 **This project does not measure burned area.** That needs Sentinel-2 scenes
 before and after, and a dNBR calculation.
 
-## Development
 
-```bash
-pip install -e ".[dev]"
-pytest        # 110 tests
-ruff check .
-```
-
-Tests run fully offline against a synthetic fire field — no API key, no network.
-
-```
-run.py                      CLI entry point
-firms_spread/firms.py       FIRMS fetch and schema normalisation
-firms_spread/clustering.py  DBSCAN and fire complex assembly
-firms_spread/era5.py        ERA5 reanalysis hourly series, forecast gap-fill
-firms_spread/event.py       shared event timeline and frame grid
-firms_spread/spread.py      rate-of-spread model and front geometry
-firms_spread/validate.py    modelled bearing versus observed displacement
-firms_spread/timeline.py    time slider and per-frame rendering
-firms_spread/smoke.py       canvas smoke plume
-firms_spread/render.py      folium map assembly
-firms_spread/demo.py        synthetic data for offline runs
-```
 
 ## Related project
 
-[**fire-spread-sandbox**](https://github.com/USERNAME/fire-spread-sandbox) —
+[**fire-spread-sandbox**](https://github.com/aigulbekbayeva/fire-spread-sandbox) —
 the forward-looking counterpart. Click any point on a map and it forecasts
 spread from live hourly wind, entirely in the browser: one HTML file, no
 backend, no key. Same physics, ported to JavaScript, with the same reference
